@@ -8,6 +8,4 @@ Route::get('/', HomeController::class);
 
 Route::get('/posts', [PostsController::class, 'index']);
 
-Route::get('/posts/{post}', function($post){
-	return "Posts {$post}";
-});
+Route::get('/posts/{post}', [PostsController::class, 'show']);
