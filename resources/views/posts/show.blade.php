@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Blog App | Post</title>
-</head>
-<body>
-	<h1>Post {{$post}}  </h1>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('title', 'Blog App | Post')
+
+@section('content')
+	<div class="max-w-4xl mx-auto px-4">
+		<h1>Post {{$post}}  </h1>
+	</div>
+	
+@endsection
