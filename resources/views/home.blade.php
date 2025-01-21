@@ -11,7 +11,7 @@
 @endpush
 
 @section('content')
-	<div class="max-w-4xl mx-auto px-4">
+	<div>
 		<x-alert type="success">
 			<x-slot name='title'>
 				Hablame manito 
