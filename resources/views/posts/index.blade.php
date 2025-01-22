@@ -4,17 +4,18 @@
 
 @section('content')
 	<div>
-		<a href="http://localhost/laravel-projects/blog-app/public/posts/create"> Crear un nuevo post </a>
+		<a href="{{route('posts.create')}}"> Crear un nuevo post </a>
 		<h1>Posts</h1>
 		<ul>
 			@foreach ($posts as $post)
 				<li>
-					<a href="http://localhost/laravel-projects/blog-app/public/posts/{{$post->id}}">
+					<a href="{{route('posts.show', $post->id)}}">
 						{{$post->title}}
 					</a>
 				</li>
 			@endforeach
 		</ul>
+		{{ $posts->links() }}
 	</div>
 	
 @endsection

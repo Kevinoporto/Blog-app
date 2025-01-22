@@ -5,7 +5,7 @@
 @section('content')
 	<div>
 		<h1>Formulario para editar un post</h1>
-		<form action="http://localhost/laravel-projects/blog-app/public/posts/{{$post->id}}" method="POST">
+		<form action="{{route('posts.update', $post->id)}}" method="POST">
 
 			@csrf
 			@method('PUT')

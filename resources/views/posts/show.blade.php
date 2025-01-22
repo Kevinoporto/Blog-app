@@ -4,15 +4,15 @@
 
 @section('content')
 	<div>
-		<a href="http://localhost/laravel-projects/blog-app/public/posts"> Volver a Posts </a>
+		<a href="{{route('posts.index')}}"> Volver a Posts </a>
 		<h2>Titulo: {{$post->title}}</h2>
 		<p>
 			<b>Categoria: </b> {{$post->category}}
 		</p>
 		<p> {{$post->content}} </p>
-		<a href="http://localhost/laravel-projects/blog-app/public/posts/{{$post->id}}/edit"> Editar Post</a>
+		<a href="{{route('posts.edit', $post->id)}}"> Editar Post</a>
 		
-		<form action="http://localhost/laravel-projects/blog-app/public/posts/{{$post->id}}" method="POST">
+		<form action="{{route('posts.destroy', $post->id)}}" method="POST">
 			@csrf
 			@method('DELETE')
 			<button type="submit">

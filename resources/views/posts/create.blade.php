@@ -5,7 +5,7 @@
 @section('content')
 	<div>
 		<h1>Formulario para crear un nuevo post</h1>
-		<form action="http://localhost/laravel-projects/blog-app/public/posts" method="POST">
+		<form action="{{route('posts.store')}}" method="POST">
 
 			@csrf
 
