@@ -10,6 +10,7 @@
 			<b>Categoria: </b> {{$post->category}}
 		</p>
 		<p> {{$post->content}} </p>
+		<a href="http://localhost/laravel-projects/blog-app/public/posts/{{$post->id}}/edit"> Editar Post</a>
 		
 	</div>
 	

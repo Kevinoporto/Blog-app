@@ -31,4 +31,18 @@ class PostsController extends Controller
 			'post' => $post
 		]);
 	}
+
+	public function edit($post){
+		$post = Post::find($post);
+		return view('posts.edit', compact('post'));
+	}
+
+	public function update(Request $req, $post){
+		$post = Post::find($post);
+		$post->title = $req->title;
+		$post->category = $req->category;
+		$post->content = $req->content;
+		$post->save();
+		return redirect("/posts/{$post->id}");
+	}
 }
