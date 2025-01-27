@@ -12,6 +12,14 @@ class PostsController extends Controller
 	}
 
 	public function store(Request $req){
+
+		$req->validate([
+			'title' => 'required | min:5 | max:255',
+			'slug' => 'required | min:5 | max:255 | unique:posts',
+			'category' => 'required | min:5 | max:255',
+			'content' => 'required | min:5 | max:255'
+		]);
+
 		$post = new Post();
 		$post->title = $req->title;
 		$post->slug = $req->slug;
@@ -38,6 +46,13 @@ class PostsController extends Controller
 	}
 
 	public function update(Request $req, $post){
+		$post = Post::find($post);
+		$req->validate([
+			'title' => 'required | min:5 | max:255',
+			'slug' => "required | min:5 | max:255 | unique:posts,slug,{$post->id}",
+			'category' => 'required | min:5 | max:255',
+			'content' => 'required | min:5 | max:255'
+		]);
 		$post = Post::find($post);
 		$post->title = $req->title;
 		$post->slug = $req->slug;
