@@ -10,4 +10,8 @@ class Post extends Model
     use HasFactory;
 
 	protected $table = 'posts';
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }

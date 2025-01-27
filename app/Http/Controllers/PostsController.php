@@ -14,6 +14,7 @@ class PostsController extends Controller
 	public function store(Request $req){
 		$post = new Post();
 		$post->title = $req->title;
+		$post->slug = $req->slug;
 		$post->category = $req->category;
 		$post->content = $req->content;
 		$post->save();
@@ -25,8 +26,7 @@ class PostsController extends Controller
 		return view('posts.index', compact('posts'));
 	}
 
-	public function show($post) {
-		$post = Post::find($post);
+	public function show(Post $post) {
 		return view('posts.show', [
 			'post' => $post
 		]);
@@ -40,10 +40,11 @@ class PostsController extends Controller
 	public function update(Request $req, $post){
 		$post = Post::find($post);
 		$post->title = $req->title;
+		$post->slug = $req->slug;
 		$post->category = $req->category;
 		$post->content = $req->content;
 		$post->save();
-		return redirect("/posts/{$post->id}");
+		return redirect("/posts/{$post->slug}");
 	}
 
 	public function destroy($post){
