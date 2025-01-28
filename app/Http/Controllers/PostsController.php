@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -11,14 +12,7 @@ class PostsController extends Controller
 		return view('posts.create');
 	}
 
-	public function store(Request $req){
-
-		$req->validate([
-			'title' => 'required | min:5 | max:255',
-			'slug' => 'required | min:5 | max:255 | unique:posts',
-			'category' => 'required | min:5 | max:255',
-			'content' => 'required | min:5 | max:255'
-		]);
+	public function store(StorePostRequest $req){
 
 		$post = new Post();
 		$post->title = $req->title;
