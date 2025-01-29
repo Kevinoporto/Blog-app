@@ -162,6 +162,7 @@ return [
         'available'                => 'disponible',
         'birthday'                 => 'cumpleaños',
         'body'                     => 'contenido',
+        'category'                 => 'categoria',
         'city'                     => 'ciudad',
         'company'                  => 'compañía',
         'compilation'              => 'compilación',
