@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Mail\PostCreatedMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostsController extends Controller
 {
@@ -20,6 +22,8 @@ class PostsController extends Controller
 		$post->category = $req->category;
 		$post->content = $req->content;
 		$post->save();
+
+		Mail::to('prueba@prueba.com')->send(new PostCreatedMail($post));
 		return redirect('/posts');
 	}
 
