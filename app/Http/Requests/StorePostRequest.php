@@ -29,13 +29,4 @@ class StorePostRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return[
-            'title.required' => 'El titulo es requerido.',
-            'slug.required' => 'El slug es requerido.',
-            'category.required' => 'La categoria es requerida',
-            'content.required' => 'El contenido es requerido'
-        ];
-    }
 }
